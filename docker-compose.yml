@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      PGUSER: postgres
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./docker/init_db/yellow_tripdata_sample.csv:/data/taxi_trips.csv
+      - ./docker/init_db/init.sql:/docker-entrypoint-initdb.d/init.sql

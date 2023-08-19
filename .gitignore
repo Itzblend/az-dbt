@@ -1,0 +1,7 @@
+.vscode
+az-dbt
+.env
+__pycache__
+*.sh
+logs
+deploy.md
