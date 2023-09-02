@@ -18,6 +18,9 @@ install:
 env:
 	source .env
 
+run-dev-env:
+	docker-compose up -d
+
 build:
 	docker build -f docker/dbt/Dockerfile -t $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG) .
 

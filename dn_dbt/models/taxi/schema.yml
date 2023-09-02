@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: taxi
+    database: taxi  
+    schema: public  
+    tables:
+      - name: taxi_trips
